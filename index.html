@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trade Team App</title>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="https://unpkg.com/realm-web@1.2.0/dist/bundle.iife.js"></script>
+</head>
+<body>
+  <div id="app">
+    <button @click="showMessage">Click me!</button>
+    <p>{{ message }}</p>
+  </div>
+
+  <script>
+    
+    const app = Vue.createApp({
+      data() {
+        return {
+          message: 'Hello Trade Team Member!',
+          client: null,
+          db: null
+        }
+      },
+      methods: {
+        showMessage() {
+          this.db.collection('symbol').insertOne({text: this.message})
+            .then(result => console.log(`Successfully inserted item with _id: ${result.insertedId}`))
+            .catch(err => console.error(`Failed to insert item: ${err}`))
+        }
+      },
+      async mounted() {
+        console.log('Trade app mounted!')
+
+
+        const app = new Realm.App({ id: 'data-fndqn' });
+        const credentials = Realm.Credentials.emailPassword('educobian@gmail.com', 'edupass1');
+        // Authenticate the user
+        const user = await app.logIn(credentials);
+        // `App.currentUser` updates to match the logged in user
+        console.assert(user.id === app.currentUser.id);
+
+        this.db = user.mongoClient('mongodb-atlas').db('TradeTeam');
+        console.log("this.db :", this.db )
+
+      }
+    })
+    app.mount('#app')
+    // raderuser:0V4plDt0ILEzvjPK
+    // clusterKey: qQuaDwVsPn18pilwzUB2HNxX6cd7gYxSOapwR5AUCsdNWFM5nDqiKbH1BBRPZK7J
+  </script>
+</body>
+</html>
