@@ -17,7 +17,7 @@
     "bitcoin-core": "^4.1.0",
     "canvas": "^2.11.2",
     "chart.js": "^4.2.1",
-    "cron": "^2.2.0",
+    "cron": "^2.4.3",
     "d3": "^7.8.4",
     "decimal.js": "^10.4.3",
     "googleapis": "^126.0.0",
@@ -34,6 +34,7 @@
     "sharp": "^0.32.5",
     "sync-request": "^6.1.0",
     "yahoo-finance": "^0.3.8",
+    "yahoo-finance2": "^2.5.0",
     "zeromq": "^5.2.8"
   }
 }
