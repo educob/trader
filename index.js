@@ -57,7 +57,7 @@ async function start() {
       if(!arg4)
         arg3 = 3
       const bars = await yahoo.fetch_bars(arg2, arg4)
-      console.log("bars:", bars[0], " of ", bars.length)
+      console.log("bars:", bars, "Total: ", bars.length)
     } else if(arg3 === 'details') {
       const res = await yahoo.symbol_details(arg2)
       console.log("Details:", res)
