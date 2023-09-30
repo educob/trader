@@ -33,6 +33,7 @@
     "selenium-webdriver": "^4.11.1",
     "sharp": "^0.32.5",
     "sync-request": "^6.1.0",
+    "technicalindicators": "^3.1.0",
     "yahoo-finance": "^0.3.8",
     "yahoo-finance2": "^2.5.0",
     "zeromq": "^5.2.8"
