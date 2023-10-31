@@ -175,7 +175,7 @@ async function check_breakouts() {
   }
 }
 
-async function detect_patterns() {
+async function detect_patterns() {  //await pattern.detect_patterns( [ { symbol: 'REE'} ] ) ; return
   const db = await mongo.connect()
   // unlock patterns after 1 month.
   db.collection('locked_pattern').deleteMany({ locked: { $lt: new Date() } })
