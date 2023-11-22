@@ -14,6 +14,9 @@ if(!jwtToken) console.log("Must: export jwtToken=xxx")
 start()
 
 // pm2 start index.js --cron "*/20 * * * *" --name news -- news --exit-code 1
+// pm2 start index.js --cron "0 1 * * *" --name day_job -- day_job --exit-code 1
+// pm2 start index.js --cron "30 9 * * *" --name day_job -- day_job --exit-code 1
+
 // pm2 restart
 // pm2 logs news --follow
 // pm2 stop news
@@ -140,7 +143,6 @@ async function process_news() { console.info("Start processing news")
   console.log("🖥️ 🖥️ 🖥️ 🖥️ 🖥️ news:", news.length, new Date())
   const db = await mongo.connect()
   for(const news_piece of news) {
-
     const { symbol, url, impact, summary, reason } = news_piece
     const details = await yahoo.symbol_details(symbol, [ 'price'])
     const name = details.price.longName
